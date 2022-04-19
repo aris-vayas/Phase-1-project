@@ -15,13 +15,25 @@
     </div>
     <div class="container">
  
-    </div>
+    </div class="search-wrapper">
     <p style="text-align:center">
-      <input type="text" id="autocomplete"/>
-      <button id="search-anime-btn">Search</button>
+      <label for="search">Search Anime</label>
+      <input type="text" id="search" data-search/>
+    
     </p>
-    <div id="anime-collection"></div>
+  <div class="view-port">
+    <div id="anime-collection" data-container>
+      <template data-template> 
+        <div class="card">
+          <h2 class="name" data-name></h2>
+          <img class="anime-avatar" src="" alt="" data-img>
+          <button class="btn" data-btn></button>
+        </div>
+      </template>
+    </div>
 
+  </div> 
+      
     <script type="text/javascript" src="./index.js"></script>
   </body>
 </html>
