@@ -78,7 +78,7 @@
         }
 
         
-    /*
+    
         function renderForm(){
             let formContainer = document.querySelector('body')
             let form = document.createElement('form')
@@ -113,8 +113,26 @@
                      who: e.target.company.value
              }
              console.log(formObj)
+             generateReview(formObj)
              form.reset()
             })
         }
         renderForm()
-        */
+        //I want to be able to take the class name 'name' that is fed from
+        // our above search feature add take the img from that
+        //after we get the img we will layer on the name, the date 
+        //we watched it, comments about our memory of the event
+        //i will also carry the like button from above with class 'btn'
+        //take my object from above and add all into the html together
+
+        function generateReview(formObj){
+            let div = document.querySelector('card')
+            let name = document.createElement('h2')
+            let image= document.querySelector('anime-avatar')
+            name.textContent= formObj.name
+            console.log(h2)
+
+
+
+
+        }
