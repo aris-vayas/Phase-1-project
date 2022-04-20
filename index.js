@@ -72,8 +72,11 @@
         function fetchData (){
         fetch('https://api.jikan.moe/v3/search/anime?q=naruto')
         .then(res=>res.json())
-        .then(data=>displayInfo(data.results))
-        
+        .then(data=>{
+            
+            displayInfo(data.results)
+        console.log(data.results)
+        })
 
         }
 
@@ -98,7 +101,7 @@
             companyInput.name ='company'
             dateInput.name = 'date'
         
-        
+        //from css
             form.append(dateInput,nameInput,companyInput,submitBtn)
             formContainer.append(form)
             form.addEventListener('submit',(e)=>{
@@ -110,7 +113,9 @@
                  const formObj={
                      name: e.target.name.value,
                      date: e.target.date.value,
-                     who: e.target.company.value
+                     who: e.target.company.value,
+                     image: //value of "current" from search
+                     // just the not hidden
              }
              console.log(formObj)
              generateReview(formObj)
@@ -130,7 +135,9 @@
             let name = document.createElement('h2')
             let image= document.querySelector('anime-avatar')
             name.textContent= formObj.name
-            console.log(h2)
+            image.src=
+            console.log(name)
+            div.append(name,image)
 
 
 
