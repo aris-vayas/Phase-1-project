@@ -19,7 +19,7 @@
             
           //  document.createElement("")
             console.log(foundItem)
-            
+            renderForm()
             
         })
 
@@ -45,11 +45,14 @@
                 const card = dataCardTemplate.content.cloneNode(true).children[0];
                 const header = card.querySelector("[data-name]")
                 const bodyImg = card.querySelector("[data-img]")
-                const button = card.querySelector("[data-btn]")    
+               const button = card.querySelector("[data-btn]")    
                 header.textContent = element.title;
                 bodyImg.src = element.image_url;
-                button.textContent = " Like ❤️ ";
-                dataContainer.append(card);
+                //button.textContent = " Like ❤️ ";
+                dataContainer.append(card)
+                
+                button.remove()
+                ;
                 
                 return { name: element.title, image: element.image_url, el: card }
              })
@@ -58,16 +61,16 @@
             let formContainer = document.querySelector('body')
             let form = document.createElement('form')
             let nameInput = document.createElement('input')
-            //let comment = document.createElement('input')
+          
             let dateInput=document.createElement('input')
             let companyInput=document.createElement('input')
             let submitBtn = document.createElement('button')
             formContainer.id ='form-container'
             nameInput.placeholder= 'enter anime Name'
-            //dateInput.placeholder= 'enter name of Episode'
+       
             submitBtn.textContent= 'SUBMIT'
             dateInput.placeholder= 'Enter date'
-            //comment.placeholder='Enter Comment Here'
+           
             companyInput.placeholder =' who was there?'
             submitBtn.type = 'input'
             form.id= 'form'
@@ -80,6 +83,8 @@
             formContainer.append(form)
             form.addEventListener('submit',(e)=>{
                 e.preventDefault()
+                //empty singleCard
+
                console.log( e.target.name.value)
                console.log( e.target.date.value)
                console.log( e.target.company.value)
@@ -98,7 +103,7 @@
              form.reset()
             })
         }
-        renderForm()
+       
         //I want to be able to take the class name 'name' that is fed from
         // our above search feature add take the img from that
         //after we get the img we will layer on the name, the date 
@@ -109,25 +114,24 @@
         function generateReview(formObj){
             //build out a new card with all NEW elements
             //query select 
-            let divData = document.querySelector('.card')
-            let name = divData.querySelector('.name')
+        
+            let newDiv = document.createElement('div')
+            let name = document.createElement('h2')
             let date = document.createElement('h2')
             let memory= document.createElement('p')
-            let image= document.querySelector('.anime-avatar')
-            let btn = document.querySelector('.btn')
+            let image= document.createElement('img')
+            let btn = document.createElement('button')
             console.log(image)
             memory.textContent = formObj.who
             name.textContent= formObj.name
             image.src= formObj.image
             date.textContent=formObj.date
+            btn.textContent = " Like ❤️ "
             
-            
-            
-            divData.append(name,image,memory,date,btn)
            
-            
-
-
-
+            newDiv.append(name,image,memory,date,btn)
+            document.querySelector('body').append(newDiv)
 
         }
+
+        function likeButton(){}
