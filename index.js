@@ -19,7 +19,7 @@
             
           //  document.createElement("")
             console.log(foundItem)
-            renderForm()
+            
             
         })
 
@@ -31,11 +31,12 @@
             animeData.forEach(anime => {
             const isVisible = anime.name.toLowerCase().includes(value) || anime.image.toLowerCase().includes(value)
             anime.el.classList.toggle("hide", !isVisible);
+            
             })
 
         })
         
-        
+        renderForm()
      
         fetch('https://api.jikan.moe/v3/search/anime?q=naruto')
         .then(res=>res.json())
@@ -58,6 +59,7 @@
              })
             })
         function renderForm(){
+            
             let formContainer = document.querySelector('body')
             let form = document.createElement('form')
             let nameInput = document.createElement('input')
@@ -99,7 +101,7 @@
                      // just the not hidden
              }
              console.log(formObj)
-             generateReview(formObj)
+             newCard(formObj)
              form.reset()
             })
         }
@@ -111,7 +113,7 @@
         //i will also carry the like button from above with class 'btn'
         //take my object from above and add all into the html together
 
-        function generateReview(formObj){
+        function newCard(formObj){
             //build out a new card with all NEW elements
             //query select 
         
