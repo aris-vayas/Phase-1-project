@@ -128,12 +128,28 @@
             name.textContent= formObj.name
             image.src= formObj.image
             date.textContent=formObj.date
+            btn.id= 'like-button'
             btn.textContent = " Like ❤️ "
-            
-           
+            btn.addEventListener('click',(e)=>{
+               likeButton(e)
+               
+                })
             newDiv.append(name,image,memory,date,btn)
             document.querySelector('body').append(newDiv)
 
         }
 
-        function likeButton(){}
+        function likeButton(btn){
+           // let likeBtn = document.querySelector('#like-button')
+           // console.log(likeBtn)
+            if (btn.target.textContent===" Like ❤️ "){
+
+                btn.target.textContent= 'Like'
+                 }
+            else if (btn.target.textContent=='Like'){
+                btn.target.textContent=" Like ❤️ "
+            }
+
+
+
+        }
