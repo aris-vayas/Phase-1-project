@@ -97,47 +97,7 @@
              console.log(animeData);
         })
         .catch(err => console.log(err));
-        /*
-        function renderForm(){
-            let formContainer = document.querySelector('body')
-            let form = document.createElement('form')
-            let dateInput = document.createElement('input')
-            
-            let nameInput=document.createElement('input')
-            let companyInput=document.createElement('input')
-            let submitBtn = document.createElement('button')
-            formContainer.id ='form-container'
-            dateInput.placeholder= 'enter name...'
-            submitBtn.textContent= 'Enter Review'
-            nameInput.placeholder= 'Enter Anime name'
-            companyInput.placeholder =' who was there?'
-            submitBtn.type = 'input'
-            form.id= 'form'
-            nameInput.name = 'name'
-            companyInput.name ='company'
-            dateInput.name = 'date'
         
-        
-            form.append(dateInput,nameInput,companyInput,submitBtn)
-            formContainer.append(form)
-            
-            form.addEventListener('submit',(e)=>{
-                e.preventDefault()
-               console.log( e.target.name.value)
-               console.log( e.target.date.value)
-               console.log( e.target.company.value)
-               
-                 const formObj={
-                     name: e.target.name.value,
-                     date: e.target.date.value,
-                     who: e.target.company.value
-             }
-             console.log(formObj)
-             form.reset()
-            })
-        }
-        renderForm()
-        */
         function renderForm(){
             
             let formContainer = document.querySelector('body')
@@ -163,6 +123,7 @@
         //form css
             form.append(dateInput,nameInput,companyInput,submitBtn)
             formContainer.append(form)
+
             form.addEventListener('submit',(e)=>{
                 e.preventDefault()
                 //empty singleCard
@@ -180,7 +141,7 @@
                      //value of "current" from search
                      // just the not hidden
              }
-             
+             console.log(formObj)
              newCard(formObj)
              form.reset()
             })
@@ -216,7 +177,6 @@
                
                 })
             newDiv.append(name,image,memory,date,btn)
-        
             document.querySelector('body').append(newDiv)
 
         }
@@ -231,5 +191,4 @@
             else if (btn.target.textContent=='Like'){
                 btn.target.textContent=" Like ❤️ "
             }
-
         }
