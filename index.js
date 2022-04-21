@@ -11,6 +11,7 @@
 
         let dataCardTemplate = document.querySelector("[data-template]");
         let dataContainer = document.querySelector("[data-container]");
+        let viewPort = document.querySelector("[view-port]")
         let searchInput = document.querySelector("[data-search]");
         let searchButton = document.querySelector("[search-btn]");
         let animeData = [];
@@ -22,13 +23,18 @@
                 
                 let inputValue = searchInput.value.toLowerCase();
                 
+               
                 let foundItem = animeData.find((item) => {
                     return item.name.toLowerCase().includes(inputValue);
                 })
-    
-                dataContainer.remove();
+
+                console.log(foundItem)
                 
-                const newViewport = document.getElementsByClassName("view-port")[0];
+                addForm(foundItem);
+                
+                viewPort.remove();
+                
+                const newViewport = document.createElement("div");
                 const newDivContainer = document.createElement("div");
                 const divCards = document.createElement("div");
                 const newH2 = document.createElement("h2");
@@ -40,7 +46,8 @@
                 newDivContainer.className = "anime-new-cards";
                 divCards.className = "newcard";
                 newH2.className = "new-name";
-                newImg.className = "new-anime-avatar"
+                newImg.className = "new-anime-avatar";
+                newViewport.className = "new-view-port";
 
                 let clickedName = foundItem.name;
                 let clickedImage = foundItem.image;
@@ -59,6 +66,8 @@
                 newDivContainer.append(divCards);
 
                 newViewport.append(newDivContainer); 
+                
+                document.querySelector("body").append(newViewport);
             })
     
         }
@@ -84,7 +93,7 @@
                 const button = card.querySelector("[data-btn]")    
                 header.textContent = element.title;
                 bodyImg.src = element.image_url;
-                button.textContent = " Like ❤️ ";
+                //button.textContent = " Like ❤️ ";
                 dataContainer.append(card);
                 
                 return { 
@@ -98,8 +107,6 @@
         })
         .catch(err => console.log(err));
         
-        function renderForm(){
-            
             let formContainer = document.querySelector('body')
             let form = document.createElement('form')
             let nameInput = document.createElement('input')
@@ -119,10 +126,13 @@
             nameInput.name = 'name'
             companyInput.name ='company'
             dateInput.name = 'date'
+
+            form.append(dateInput,nameInput,companyInput,submitBtn)
+
+            formContainer.append(form)
         
         //form css
-            form.append(dateInput,nameInput,companyInput,submitBtn)
-            formContainer.append(form)
+        function addForm(clickedData) {
 
             form.addEventListener('submit',(e)=>{
                 e.preventDefault()
@@ -136,7 +146,7 @@
                      name: e.target.name.value,
                      date: e.target.date.value,
                      who: e.target.company.value,
-                     image: formimage
+                     image: clickedData.image
                      //placeholder image
                      //value of "current" from search
                      // just the not hidden
@@ -146,8 +156,9 @@
              form.reset()
             })
         }
+        
        
-        renderForm();
+        
         //I want to be able to take the class name 'name' that is fed from
         // our above search feature add take the img from that
         //after we get the img we will layer on the name, the date 
