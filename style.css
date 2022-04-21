@@ -125,3 +125,31 @@ h1 {
   #search-btn {
     width: 50px;
   }
+
+
+  .newcard {
+    text-align: center;
+    border: grey solid 1px;
+    padding: 1rem;
+    width: 23rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #51e0f9;
+  }
+
+  .anime-new-cards {
+    display: contents;
+    flex-direction: row;
+    width: fit-content;
+  }
+
+  .new-name {
+    text-align: center;
+  }
+
+  .new-anime-avatar {
+    justify-self: center;
+    height: 13rem;
+    width: fit-content;
+  }
