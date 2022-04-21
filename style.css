@@ -83,7 +83,6 @@ h1 {
     color: #e04b52;
   }
   
-  
   .input-text {
     border-radius: 5px;
     height: 2rem;
@@ -125,8 +124,6 @@ h1 {
   #search-btn {
     width: 50px;
   }
-
-
   .newcard {
     text-align: center;
     border: grey solid 1px;

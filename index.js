@@ -15,8 +15,8 @@
         let searchButton = document.querySelector("[search-btn]");
         let animeData = [];
 
-    
         searchBtn()
+
         function searchBtn() {
             searchButton.addEventListener("click", (e)=>{
                 
@@ -25,50 +25,40 @@
                 let foundItem = animeData.find((item) => {
                     return item.name.toLowerCase().includes(inputValue);
                 })
-
-                console.log(inputValue)
     
                 dataContainer.remove();
                 
-                
-                const newViewport = document.getElementsByClassName("view-port")[0]
-                const newDivContainer = document.createElement("div")
+                const newViewport = document.getElementsByClassName("view-port")[0];
+                const newDivContainer = document.createElement("div");
                 const divCards = document.createElement("div");
-                const h = document.createElement("h2");
-                const b = document.createElement("img");
+                const newH2 = document.createElement("h2");
+                const newImg = document.createElement("img");
                 let rate = document.createElement("span");
                 let score = document.createElement("p");
                 let epi = document.createElement("p");
 
                 newDivContainer.className = "anime-new-cards";
                 divCards.className = "newcard";
-                h.className = "new-name";
-                b.className = "new-anime-avatar"
+                newH2.className = "new-name";
+                newImg.className = "new-anime-avatar"
 
-
-            
                 let clickedName = foundItem.name;
                 let clickedImage = foundItem.image;
                 let clickedRate = `Rated: ${foundItem.rate}`;
                 let clickedScoring = `Score: ${foundItem.scoring}`;
                 let clickedEpisode = `# of Episodes: ${foundItem.episode}`;
-
-       
                 
-                
-                h.textContent = clickedName;
-                b.src = clickedImage; 
+                newH2.textContent = clickedName;
+                newImg.src = clickedImage; 
                 rate.textContent = clickedRate;
                 score.textContent = clickedScoring;
                 epi.textContent = clickedEpisode;
 
-
-                divCards.append(h, b, score, rate, epi)
+                divCards.append(newH2, newImg, score, rate, epi)
 
                 newDivContainer.append(divCards);
 
-                newViewport.append(newDivContainer)
-                
+                newViewport.append(newDivContainer); 
             })
     
         }
@@ -80,16 +70,15 @@
             const isVisible = anime.name.toLowerCase().includes(value) || anime.image.toLowerCase().includes(value)
             anime.el.classList.toggle("hide", !isVisible);
             })
-
         })
-        
-        
-     
+        //1.get data from the Anime API Server
         fetch('https://api.jikan.moe/v3/search/anime?q=naruto')
         .then(res=>res.json())
         .then(data=> {
+            //2. Iterating each element objects in data array and grab tmep and copy the data that we want in animeData using map
              animeData = data.results.map(element => {
-                const card = dataCardTemplate.content.cloneNode(true).children[0];
+            
+                const card = dataCardTemplate.content.cloneNode(true).children[0]; // we content inside of template, and clone the node and passe true  meaning clone contents of tags inside of template tag // return to document fragment gets return
                 const header = card.querySelector("[data-name]")
                 const bodyImg = card.querySelector("[data-img]")
                 const button = card.querySelector("[data-btn]")    
@@ -104,11 +93,11 @@
                     episode: element.episodes
                 }
              })
-            })
-    
-
+             console.log(data.results)
+             console.log(animeData);
+        })
+        .catch(err => console.log(err));
         /*
-    
         function renderForm(){
             let formContainer = document.querySelector('body')
             let form = document.createElement('form')
@@ -149,7 +138,6 @@
         }
         renderForm()
         */
-
         function renderForm(){
             
             let formContainer = document.querySelector('body')
