@@ -13,4 +13,4 @@ created by Aris and Hyun.
 3. keyup (enter) to trigger click button.
 4. form submit.
 5. like button.
-6. fetch PATCH(like button) and POST (saved form) to our Jason Server to keep saved data on.
+6. fetch PATCH(like button) and POST (saved form) to our Jason Server to keep saved data on the page.
