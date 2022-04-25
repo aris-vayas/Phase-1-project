@@ -28,7 +28,7 @@ h1 {
     border: grey solid 1px;
     padding: 1rem;
     width: 23rem;
-    height: 25rem;
+    height: 21rem;
     display: inline-grid;
     margin: 1rem 2rem;
     box-shadow: 3px 4px #51e0f9
@@ -109,9 +109,9 @@ h1 {
   overscroll-behavior-inline: contain;
   }
   .new-view-port {
-    border: 5px solid #4edaf6;
-  display: flex;
-justify-content: center;
+    border: 10px solid #4edaf6;
+    display: flex;
+  justify-content: center;
   }
 
   .search-wrapper {
@@ -159,7 +159,46 @@ justify-content: center;
     width: fit-content;
   }
 
-form{
+form {
   display: flex;
   justify-content: center;
+}
+
+.Card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 18rem;
+  height: 35rem;
+  display: inline-grid;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: 3px 4px #51e0f9;
+}
+
+.formInput {
+  width: 200px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.formBtn {
+  width: 200px;
+  height: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.formWhoInput {
+  width: 500px;
+  height: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
