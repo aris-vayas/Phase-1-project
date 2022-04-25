@@ -8,33 +8,25 @@
   <body>
     <div id="anime-header">
       <h1>Favorite Anime Collection</h1>
-     <!--<img
-        src=""
-        alt="anime-header"
-      /><-->
     </div>
-    <div class="container">
- 
-    </div class="search-wrapper">
-    <p style="text-align:center">
-      <label for="search">Search Anime</label>
-      <input type="text" id="search" data-search/>
     
-    </p>
-  <div class="view-port">
-    <div id="anime-collection" data-container>
+    <div class="search-wrapper" style="text-align:center">
+      <label for="search"></label>
+      <input type="search" id="search" data-search/>
+      <button id="search-btn" search-btn>&#x1F50D</button>
+    </div>
+  
+  <div class="view-port" id ="data-view" view-port>
+    <div id="anime-collection" class="anime-cards" data-container>
       <template data-template> 
         <div class="card">
           <h2 class="name" data-name></h2>
-          <img class="anime-avatar" src="" alt="" data-img>
-          <button class="btn" data-btn></button>
+          <img class="anime-avatar" src="" alt="" data-img> 
         </div>
       </template>
     </div>
-
   </div> 
       
     <script type="text/javascript" src="./index.js"></script>
   </body>
 </html>
-

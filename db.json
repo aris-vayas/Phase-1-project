@@ -1,5 +1,22 @@
 {
   "animeData": [
-  
+    {
+      "name": "naruto",
+      "date": "04/12/2022",
+      "who": "watched it with my wife.",
+      "image": "https://cdn.myanimelist.net/images/anime/10/67631.jpg?s=d84468711f6c7b6c122e4822fb4ab805",
+      "animeTitle": "The Last: Naruto the Movie",
+      "like": true,
+      "id": 1
+    },
+    {
+      "name": "naruto",
+      "date": "20/20",
+      "who": "I watched this joint with my wife at home.",
+      "image": "https://cdn.myanimelist.net/images/anime/6/77678.jpg?s=fc407cec1b4439623be598ad1eb31867",
+      "animeTitle": "Boruto: Naruto the Movie - Naruto ga Hokage ni Natta Hi",
+      "like": true,
+      "id": 2
+    }
   ]
 }
